@@ -1,118 +1,61 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hubungi Kami - Klug</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-</head>
-<body>
-<header>
-    <div class="navbar">
-        <div class="logo">
-            <img src="kluglogo.png" alt="klug logo">
-        </div>
-        <nav>
-            <ul id="nav-links">
-                <li><a href="index.html" class="nav-link">Home</a></li>
-                <li><a href="about.html" class="nav-link">Tentang Kami</a></li>
-                <li><a href="services.html" class="nav-link">Layanan Kami</a></li>
-                <li><a href="articles.html" class="nav-link">Artikel</a></li>
-                <li><a href="contact.html" class="nav-link">Hubungi Kami</a></li>
-            </ul>
-        </nav>
-        <div class="navbar-actions">
-            <input type="text" placeholder="Cari..." class="search-bar">
-            <button class="register-btn">Register Online</button>
-        </div>
-    </div>
-</header>
+<?php
+// Konfigurasi koneksi ke database
+$host = 'localhost'; // Ganti dengan host database Anda, misalnya localhost
+$username = 'root';  // Ganti dengan username MySQL Anda
+$password = '';      // Ganti dengan password MySQL Anda
+$dbname = 'hubungi_kami'; // Nama database Anda
 
-<section id="contact-banner">
-    <div class="banner-overlay">
-        <h2>HUBUNGI KAMI</h2>
-    </div>
-</section>
+// Koneksi ke database
+$conn = new mysqli($host, $username, $password, $dbname);
 
-<section id="kirim-pesan">
-    <h2>Kirim Pesan</h2>
-    <!-- Ganti action form dengan URL tempat PHP di-host -->
-    <form action="hubungi_kami.php" method="POST">
-        <div class="kirim-pesan-group">
-            <div class="kirim-pesan-item">
-                <label for="nama">Nama*</label>
-                <input type="text" id="nama" name="nama" placeholder="Nama lengkap Anda" required>
-            </div>
-            <div class="kirim-pesan-item">
-                <label for="email">E-Mail*</label>
-                <input type="email" id="email" name="email" placeholder="Alamat E-Mail Anda" required>
-            </div>
-            <div class="kirim-pesan-item">
-                <label for="perusahaan">Perusahaan / Organisasi</label>
-                <input type="text" id="perusahaan" name="perusahaan" placeholder="Nama Perusahaan / Organisasi">
-            </div>
-            <div class="kirim-pesan-item">
-                <label for="telepon">Telepon</label>
-                <input type="tel" id="telepon" name="telepon" placeholder="Nomor telepon Anda">
-            </div>
-        </div>
-        
-        <div class="kirim-pesan-message">
-            <label for="pesan">Isi Pesan*</label>
-            <textarea id="pesan" name="pesan" placeholder="Isi pesan Anda..." rows="5" required></textarea>
-        </div>
+// Cek koneksi
+if ($conn->connect_error) {
+    die("Koneksi gagal: " . $conn->connect_error);
+}
 
-        <div class="kirim-pesan-captcha-submit">
-            <div class="captcha-label">
-                <!-- reCAPTCHA -->
-                <div class="g-recaptcha" data-sitekey="6LdS4bcqAAAAADPHiB1kEHUKtlbsk4JKwyIhI5mB"></div>
-            </div>
-            <div class="kirim-pesan-submit">
-                <button type="submit" class="kirim-pesan-btn">KIRIM PESAN</button>
-            </div>
-        </div>
-    </form>
-</section>
+// Ambil data dari form
+$nama = isset($_POST['nama']) ? trim($_POST['nama']) : '';
+$email = isset($_POST['email']) ? trim($_POST['email']) : '';
+$perusahaan = isset($_POST['perusahaan']) ? trim($_POST['perusahaan']) : '';
+$telepon = isset($_POST['telepon']) ? trim($_POST['telepon']) : '';
+$pesan = isset($_POST['pesan']) ? trim($_POST['pesan']) : '';
 
-<hr>
+// Validasi form
+if (empty($nama) || empty($email) || empty($pesan)) {
+    die("Nama, Email, dan Pesan harus diisi!");
+}
 
-<section id="contact">
-    <h2>LOKASI KAMI</h2>
-    <div class="lokasi-item">
-        <h3>KANTOR PUSAT</h3>
-        <p>Gedung Ir. H. M. Suseno - Jl. R.P Soeroso No.6, Menteng, Jakarta Pusat</p>
-        <p>Phone: (+62 21) 398 38706 - Fax: (+62 21) 316 1701</p>
-        <p>Hotline: +6281519040071 / +62811998167</p>
-    </div>
-    
-    <div class="lokasi-item">
-        <h3>KANTOR CABANG</h3>
-        <p>Gedung Ir. H. M. Suseno - Jl. R.P Soeroso No.6, Menteng, Jakarta Pusat</p>
-        <p>Phone: (+62 21) 398 38706 - Fax: (+62 21) 316 1701</p>
-        <p>Hotline: +6281519040071 / +62811998167</p>
-    </div>
-</section>
+// Pastikan email valid
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    die("Alamat email tidak valid.");
+}
 
-<footer>
-    <p>&copy; Copyright © 2020 - Inalug Indonesia | Hak cipta dilindungi undang-undang</p>
-</footer>
+// Validasi Captcha
+$captcha = isset($_POST['g-recaptcha-response']) ? $_POST['g-recaptcha-response'] : '';
+if (empty($captcha)) {
+    die("Captcha tidak diisi. Silakan lengkapi captcha.");
+}
 
-<!-- Script JavaScript untuk Hamburger Menu -->
-<script>
-    function toggleMenu() {
-        var navLinks = document.getElementById('nav-links');
-        navLinks.classList.toggle('active'); // Tambah atau hapus class active
-    }
-</script>
-<script>
-    // Pilih semua tautan navigasi
-    document.querySelectorAll('.nav-link').forEach(link => {
-        // Periksa apakah tautan cocok dengan URL halaman saat ini
-        if (link.href === window.location.href) {
-            link.classList.add('active'); // Tambahkan kelas 'active'
-        }
-    });
-</script>
-</body>
-</html>
+$secretKey = "6LdS4bcqAAAAAHHonfriaB3AtTePZGyw2CUCjIPs"; // Secret key reCAPTCHA Anda
+$response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secretKey&response=$captcha");
+$responseKeys = json_decode($response, true);
+
+if (!$responseKeys['success']) {
+    die("Verifikasi Captcha gagal. Silakan coba lagi.");
+}
+
+// Menggunakan Prepared Statement untuk menghindari SQL Injection
+$stmt = $conn->prepare("INSERT INTO hubungi_kami (nama, email, perusahaan, telepon, pesan, captcha) VALUES (?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("ssssss", $nama, $email, $perusahaan, $telepon, $pesan, $captcha);
+
+// Menjalankan query dan cek hasilnya
+if ($stmt->execute()) {
+    echo "Pesan Anda berhasil dikirim. Terima kasih telah menghubungi kami!";
+} else {
+    echo "Error: " . $stmt->error;
+}
+
+// Menutup koneksi
+$stmt->close();
+$conn->close();
+?>
