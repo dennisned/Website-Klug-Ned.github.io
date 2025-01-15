@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang Kami - Klug</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+    <div class="navbar">
+        <div class="logo">
+            <img src="kluglogo.png" alt="klug logo">
+        </div>
+        <nav>
+            <ul id="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">Tentang Kami</a></li>
+                <li><a href="services.html" class="nav-link">Layanan Kami</a></li>
+                <li><a href="articles.html" class="nav-link">Artikel</a></li>
+                <li><a href="contact.html" class="nav-link">Hubungi Kami</a></li>
+            </ul>
+        </nav>
+        <div class="navbar-actions">
+            <input type="text" placeholder="Cari..." class="search-bar">
+            <button class="register-btn">Register Online</button>
+        </div>
+    </div>
+</header>
+            <div class="hamburger" onclick="toggleMenu()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </header>
+
+    <section id="articles-banner">
+        <div class="banner-overlay">
+            <h2>Penting! Cara Mudah agar Bisa Kuliah di Luar Negeri dengan Beasiswa</h2>
+        </div>
+    </section>
+
+    <main class="articles-container">
+        <div class="article-list">
+            <!-- Artikel 1 -->
+            <div class="article-item">
+                <img src="hybis.jpg" alt="Gambar Artikel 1">
+                <h3>Penting! Cara Mudah agar Bisa Kuliah di Luar Negeri dengan Beasiswa</h3>
+            </div>
+            <!-- Artikel 2 -->
+            <div class="article-item">
+                <img src="KulinerBandung.jpg" alt="Gambar Artikel 2">
+                <h3>Penting! Cara Mudah agar Bisa Kuliah di Luar Negeri dengan Beasiswa</h3>
+            </div>
+        </div>
+        <hr>
+        <div class="articles-container">
+            <h2>Artikel Terbaru</h2>
+            <div class="latest-articles">
+                <div class="latest-article">
+                    <img src="surabaya.jpeg" alt="Gambar Artikel Terbaru">
+                    <div class="latest-article-text">
+                        <h3>Penting! Cara Mudah agar Bisa Kuliah di Luar Negeri dengan Beasiswa</h3>
+                        <p>Selasa, 18 Feb 2020 12:01 WIB</p>
+                    </div>
+                </div>
+                <div class="latest-article">
+                    <img src="kampus.jpg" alt="Gambar Artikel Terbaru">
+                    <div class="latest-article-text">
+                        <h3>Penting! Cara Mudah agar Bisa Kuliah di Luar Negeri dengan Beasiswa</h3>
+                        <p>Selasa, 18 Feb 2020 12:01 WIB</p>
+                    </div>
+                </div>
+                <div class="latest-article">
+                    <img src="perpustakaan.jpg" alt="Gambar Artikel Terbaru">
+                    <div class="latest-article-text">
+                        <h3>Penting! Cara Mudah agar Bisa Kuliah di Luar Negeri dengan Beasiswa</h3>
+                        <p>Selasa, 18 Feb 2020 12:01 WIB</p>
+                    </div>
+                </div>
+                <div class="latest-article">
+                    <img src="harvard.webp" alt="Gambar Artikel Terbaru">
+                    <div class="latest-article-text">
+                        <h3>Penting! Cara Mudah agar Bisa Kuliah di Luar Negeri dengan Beasiswa</h3>
+                        <p>Selasa, 18 Feb 2020 12:01 WIB</p>
+                    </div>
+                </div>
+                <div class="latest-article">
+                    <img src="HUBUNGI.jpg" alt="Gambar Artikel Terbaru">
+                    <div class="latest-article-text">
+                        <h3>Penting! Cara Mudah agar Bisa Kuliah di Luar Negeri dengan Beasiswa</h3>
+                        <p>Selasa, 18 Feb 2020 12:01 WIB</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="pagination">
+            <button class="prev">&lt;</button>
+            <ul>
+                <li class="page-item active">1</li>
+                <li class="page-item">2</li>
+                <li class="page-item">3</li>
+                <li class="page-item">4</li>
+                <li class="page-item">5</li>
+            </ul>
+            <button class="next">&gt;</button>
+        </div>
+
+    <section id="contact">
+            <h2>HUBUNGI KAMI</h2>
+        
+            <div class="lokasi-item">
+                <h3>KANTOR PUSAT</h3>
+                <p>Gedung Ir. H. M. Suseno - Jl. R.P Soeroso No.6, Menteng, Jakarta Pusat</p>
+                <p>Phone: (+62 21) 398 38706 - Fax: (+62 21) 316 1701</p>
+                <p>Hotline: +6281519040071 / +62811998167</p>
+            </div>
+
+            </div>
+                <a href="contact.html" class="oval-button">Lokasi Kami</a>
+                <a href="contact.html" class="oval-button">Kirim Pesan</a>
+            </div>
+        
+
+    </section>
+
+            <footer>
+        <p>&copy; Copyright © 2020 - Inalug Indonesia | Hak cipta dilindungi undang-undang</p>
+    </footer>
+        <!-- Script JavaScript untuk Hamburger Menu -->
+        <script>
+            function toggleMenu() {
+                var navLinks = document.getElementById('nav-links');
+                navLinks.classList.toggle('active'); // Tambah atau hapus class active
+            }
+        </script>
+        <script>
+        // Pilih semua tautan navigasi
+        document.querySelectorAll('.nav-link').forEach(link => {
+            // Periksa apakah tautan cocok dengan URL halaman saat ini
+            if (link.href === window.location.href) {
+                link.classList.add('active'); // Tambahkan kelas 'active'
+            }
+        });
+        </script>
+</body>
+</html>

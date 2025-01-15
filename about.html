@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang Kami - Klug</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+    <div class="navbar">
+        <div class="logo">
+            <img src="kluglogo.png" alt="klug logo">
+        </div>
+        <nav>
+            <ul id="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">Tentang Kami</a></li>
+                <li><a href="services.html" class="nav-link">Layanan Kami</a></li>
+                <li><a href="articles.html" class="nav-link">Artikel</a></li>
+                <li><a href="contact.html" class="nav-link">Hubungi Kami</a></li>
+            </ul>
+        </nav>
+        <div class="navbar-actions">
+            <input type="text" placeholder="Cari..." class="search-bar">
+            <button class="register-btn">Register Online</button>
+        </div>
+    </div>
+</header>
+            <div class="hamburger" onclick="toggleMenu()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </header>
+    <section id="about-banner">
+        <div class="banner-overlay">
+            <h2>TENTANG KAMI</h2>
+        </div>
+    </section>
+    <section id="about" style="padding: 40px 20px; background-color: #f9f9f9; color: #333;">
+        <!-- Bagian Teks Profil -->
+        <div style="text-align: left; margin-bottom: 30px;">
+            <h2 style="font-size: 2em; font-weight: bold; margin-bottom: 20px;">Profil</h2>
+            <p style="line-height: 1.8; max-width: 800px;">
+                Didirikan pada tahun 2018, Klug adalah platform yang berkomitmen untuk membantu generasi muda Indonesia mewujudkan impian mereka untuk belajar dan berkarir di luar negeri. 
+                Sebagai konsultan pendidikan internasional yang berpengalaman, Klug menawarkan layanan profesional, terpercaya, dan menyeluruh dalam mempersiapkan Anda untuk tantangan akademik dan non-akademik di negara-negara maju.
+                <br><br>
+                Dengan dukungan tim ahli yang berdedikasi, kami memastikan setiap langkah Anda menuju kesuksesan, mulai dari pemilihan universitas terbaik, penyusunan aplikasi, hingga bimbingan karir. 
+                Bersama Klug, wujudkan masa depan gemilang di panggung dunia.
+            </p>
+        </div>
+    
+    
+        <!-- Bagian Gambar dengan Visi dan Misi -->
+        <div id="about-images" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 40px;">
+            <div style="background-color: #fff; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); padding: 20px; text-align: center;">
+                <img src="vr1.jpg" alt="Visi" style="width: 100%; height: auto; border-radius: 10px;">
+                <h3 style="margin-top: 20px; font-size: 1.5em; color: #5a0dbd;">Visi</h3>
+                <p style="line-height: 1.6;">Menjadi platform terpercaya dalam membantu generasi muda meraih pendidikan dan karir di luar negeri.</p>
+            </div>
+            <div style="background-color: #fff; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); padding: 20px; text-align: center;">
+                <img src="vr2.jpg" alt="Misi" style="width: 100%; height: auto; border-radius: 10px;">
+                <h3 style="margin-top: 20px; font-size: 1.5em; color: #5a0dbd;">Misi</h3>
+                <ul style="list-style-type: disc; padding-left: 20px; text-align: left; line-height: 1.6; margin-top: 10px;">
+                    <li>Menyediakan layanan konsultasi pendidikan yang profesional.</li>
+                    <li>Membantu persiapan akademik dan non-akademik untuk kuliah di luar negeri.</li>
+                    <li>Memberikan panduan karir yang relevan dan berkelanjutan.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+   
+    <div class="buttons-container">
+        <a href="services.html" class="oval-button">Layanan Kami </a>
+    </div>
+
+   
+    <div class="divider"></div> <!-- Garis pembatas -->
+
+    <section id="contact">
+            <h2>HUBUNGI KAMI</h2>
+        
+            <div class="lokasi-item">
+                <h3>KANTOR PUSAT</h3>
+                <p>Gedung Ir. H. M. Suseno - Jl. R.P Soeroso No.6, Menteng, Jakarta Pusat</p>
+                <p>Phone: (+62 21) 398 38706 - Fax: (+62 21) 316 1701</p>
+                <p>Hotline: +6281519040071 / +62811998167</p>
+            </div>
+
+            </div>
+                <a href="contact.html" class="oval-button">Lokasi Kami</a>
+                <a href="contact.html" class="oval-button">Kirim Pesan</a>
+            </div>
+        
+
+    </section>
+    <footer>
+        <p>&copy; Copyright © 2020 - Inalug Indonesia | Hak cipta dilindungi undang-undang</p>
+    </footer>
+        <!-- Script JavaScript untuk Hamburger Menu -->
+        <script>
+            function toggleMenu() {
+                var navLinks = document.getElementById('nav-links');
+                navLinks.classList.toggle('active'); // Tambah atau hapus class active
+            }
+        </script>
+        <script>
+        // Pilih semua tautan navigasi
+        document.querySelectorAll('.nav-link').forEach(link => {
+            // Periksa apakah tautan cocok dengan URL halaman saat ini
+            if (link.href === window.location.href) {
+                link.classList.add('active'); // Tambahkan kelas 'active'
+            }
+        });
+        </script>
+</body>
+</html>
